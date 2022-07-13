@@ -7,8 +7,8 @@ var primerMetodo = function() {
    });
    return promise;
 };
- 
- 
+
+
 var segundoMetodo = function(datos) {
    var promise = new Promise(function(resolve, reject){
       setTimeout(function() {
@@ -18,7 +18,7 @@ var segundoMetodo = function(datos) {
    });
    return promise;
 };
- 
+
 var tercerMetodo = function(datos) {
    var promise = new Promise(function(resolve, reject){
       setTimeout(function() {
@@ -43,5 +43,5 @@ p1.then(funcion(valordep1) {
 }).then(function(valordeP2) {
   return p3; // si p3 es otra promesa;
 }).then(function(valordeP3){
-  
+
 });
