@@ -163,7 +163,7 @@ Entendamos para que sirve cada uno de ellas:
 * `expect`: función de JEST que va a devolver un "expectatio" object sobre el cual luego podremos invocar algunos `matchers`. Explicado más sencillo es lo que estamos ejecutando para probar, por ejemplo `sum(3,5)` arriba estariamos probando la función que creamos pasandole esos dos parámetros y sobre la respuesta vemos si se cumple la condición que queremos o no.
 * `toBe`: es un matcher propio de JEST (no es el único de hecho ahora vamos a ver otros) que nos permite hacer una comparación exacta, en este ejemplo entre lo que devolvió la funcion `sum(3,5)` y el valor numérico 8. Si coinciden el test va a pasar y sino no.
 
-### Matchers
+## Matchers
 
 JEST tiene distintos matchers para realizar distintas validaciones sobre las funcionalidades que queremos probar:
 
@@ -267,6 +267,46 @@ describe.only('Invalid inputs', () => {
 ```
 
 ![describe only](/_src/assets/06-Testing/describe-only.png)
+
+## Mock Functions (a.k.a "spies")
+
+Permite testear el comportamiento de una función que indirectamente fue ejecutada por otra.
+
+```js
+const mockFunction = jest.fn(person => person.age > 18);
+```
+* `.mock.calls:` array con todas las invocaciones a la función donde cada elemento contiene otro array con los argumentos pasados.
+* `.mock.results:` array con todas los resultados devueltos por la función donde cada elemento contiene un objeto con el valor y el tipo de retorno.
+
+## Hooks
+
+```js
+beforeAll(() => {
+...
+});
+beforeEach(() => {
+...
+});
+afterEach(() => {
+...
+});
+afterAll(() => {
+...
+});
+```
+
+## Supertest
+
+Permite testear los request a nuestro servidor de forma autocontenida sin necesdad de levantar nuestra app.
+
+* `statusCode:` podemos vericar si el código de respuesta es el adecuado.
+
+* `response:` podemos vericar si la respuesta del endpoint coincide con lo esperado (Puede ser por text o body).
+
+* `type:` podemos vericar si el content type devuelto es el correcto.
+
+Si el `.listen` de express se encuentra en el archivo requerido en el testing va a generar que el test no termine
+de ejecutar nunca.
 
 ## Homework
 
