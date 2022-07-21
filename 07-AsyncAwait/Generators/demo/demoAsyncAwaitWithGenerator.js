@@ -62,3 +62,8 @@ function generatorRunner(generatorFunction) {
 }
 
 generatorRunner(generatorFunction);
+
+
+// async function asyncCall() {                                           let asynnCall = async () => {
+//    const result = await resolverAfter2Seconds()   Es lo mismo que -->      const = result = await resolverAfter2Seconds
+// }                                                                      }
